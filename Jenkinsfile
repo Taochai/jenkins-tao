@@ -5,7 +5,7 @@ pipeline {
 
      environment {
             USERNAME     = credentials('root')
-            PASSWORD = credentials('123123')
+            PASSWORD = credentials('vagrant')
         }
 
     stages {
