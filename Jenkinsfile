@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh 'mvn --version'
                 sh ' echo "hello jenkins"'
-                sh 'echo ${AWS_ACCESS_KEY_ID} ------  ${AWS_SECRET_ACCESS_KEY}'
+//                 sh 'echo ${AWS_ACCESS_KEY_ID} ------  ${AWS_SECRET_ACCESS_KEY}'
             }
         }
     }
