@@ -2,11 +2,18 @@
 pipeline {
 //     agent any
     agent { docker { image 'maven:3.3.3' } }
+
+     environment {
+            USERNAME     = credentials('root')
+            PASSWORD = credentials('123123')
+        }
+
     stages {
         stage('build') {
             steps {
                 sh 'mvn --version'
                 sh ' echo "hello jenkins"'
+                sh 'echo ${USERNAME} ------  ${PASSWORD}'
             }
         }
     }
