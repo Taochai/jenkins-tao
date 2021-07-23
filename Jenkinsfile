@@ -3,17 +3,21 @@ pipeline {
 //     agent any
     agent { docker { image 'maven:3.3.3' } }
 
+//      environment {
+//             USERNAME_TEST     = credentials('root')
+//             PASSWORD_TEST     = credentials('vagrant')
+//         }
      environment {
-            USERNAME_TEST     = credentials('root')
-            PASSWORD_TEST     = credentials('vagrant')
-        }
+             AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+             AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+         }
 
     stages {
         stage('build') {
             steps {
                 sh 'mvn --version'
                 sh ' echo "hello jenkins"'
-                sh 'echo ${USERNAME} ------  ${PASSWORD}'
+                sh 'echo ${AWS_ACCESS_KEY_ID} ------  ${AWS_SECRET_ACCESS_KEY}'
             }
         }
     }
