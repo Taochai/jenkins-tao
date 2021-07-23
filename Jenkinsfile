@@ -4,8 +4,8 @@ pipeline {
     agent { docker { image 'maven:3.3.3' } }
 
      environment {
-            USERNAME     = credentials('root')
-            PASSWORD = credentials('vagrant')
+            USERNAME_TEST     = credentials('root')
+            PASSWORD_TEST     = credentials('vagrant')
         }
 
     stages {
